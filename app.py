@@ -5,8 +5,14 @@ import requests
 
 # Load movies and similarity matrix
 movies = pickle.load(open("movies2.pkl", "rb"))
-similarity = pickle.load(open("similarity2.pkl", "rb"))
+#similarity = pickle.load(open("similarity2.pkl", "rb"))
 
+import gzip
+import pickle
+
+# Open and load the compressed cosine similarity array
+with gzip.open('similarity2.pkl.gz', 'rb') as f:
+    similarity= pickle.load(f)
 
 #def fetch_poster(movie_id):
 #    try:
